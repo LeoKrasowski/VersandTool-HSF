@@ -8,6 +8,7 @@ public class VersandToolHsfApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VersandToolHsfApplication.class, args);
+		System.out.println("HSF Versand Tool gestartet");
 	}
 
 }
