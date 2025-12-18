@@ -3,7 +3,7 @@ package com.HSF.Versand.Tool.HSF.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
+/*@Entity
 @Table(name = "users")
 @Getter
 @Setter
@@ -32,4 +32,6 @@ public class User {
 
     @Column(nullable = false)
     private boolean active;
+    
 }
+*/
