@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 /*@Entity
-@Table(name = "users")
+@Table(name = "user")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,19 +16,25 @@ public class User {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 50)
-    private String username;
+    private String win_user;
 
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
     @Column(nullable = false, length = 100)
-    private String fullName;
+    private String name;
 
     @Column(nullable = false)
-    private String password;
+    private String firma;
 
-    @Column(nullable = false)
-    private String role;
+    @Column
+    private String adresse;
+
+    @Column
+    private String telefon;
+
+    @Column
+    private String fax;
 
     @Column(nullable = false)
     private boolean active;
