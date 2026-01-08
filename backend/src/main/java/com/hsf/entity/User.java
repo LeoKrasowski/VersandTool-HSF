@@ -1,4 +1,4 @@
-package com.HSF.Versand.Tool.HSF.entity;
+package com.hsf.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

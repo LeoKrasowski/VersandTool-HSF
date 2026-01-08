@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "VersandToolHsfApplication",
+            "request": "launch",
+            "mainClass": "com.hsf.VersandToolHsfApplication",
+            "projectName": "Versand-Tool-HSF"
+        },
+        {
+            "type": "java",
+            "name": "Launch Spring Boot",
+            "request": "launch",
+            "mainClass": "com.hsf.VersandToolHsfApplication",
+            "projectName": "Versand-Tool-HSF"
+        }
+    ]
+}
