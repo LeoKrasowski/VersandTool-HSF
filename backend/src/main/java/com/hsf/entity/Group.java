@@ -1,9 +1,11 @@
 package com.hsf.entity;
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "group")
+@Table(name = "groups")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,4 +17,7 @@ public class Group {
 
     @Column(nullable = false, unique = true, length = 50)
     private String name;
+
+    @ManyToMany(mappedBy = "groups")
+    private Set<User> users = new java.util.HashSet<>();
 }

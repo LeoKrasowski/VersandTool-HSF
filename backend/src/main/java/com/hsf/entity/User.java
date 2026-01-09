@@ -1,10 +1,12 @@
 package com.hsf.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-/*@Entity
-@Table(name = "user")
+@Entity
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,8 +17,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String win_user;
+    @Column(name = "win_user", nullable = false, unique = true, length = 50)
+    private String winUser;
 
     @Column(nullable = false, unique = true, length = 100)
     private String email;
@@ -39,5 +41,11 @@ public class User {
     @Column(nullable = false)
     private boolean active;
     
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "user_groups",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
+    private Set<Group> groups = new java.util.HashSet<>();
 }
-*/
