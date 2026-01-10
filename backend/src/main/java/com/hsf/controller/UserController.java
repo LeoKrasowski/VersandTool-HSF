@@ -24,11 +24,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+    private final UserMapper userMapper;
 
-    @Autowired
-    private UserMapper userMapper;
+    public UserController(UserService userService, UserMapper userMapper) {
+        this.userService = userService;
+        this.userMapper = userMapper;
+    }
     // Define REST endpoints here (e.g., GET, POST, PUT, DELETE)
 
 

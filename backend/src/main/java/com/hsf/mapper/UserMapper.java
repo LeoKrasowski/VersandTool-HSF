@@ -5,10 +5,12 @@ import com.hsf.entity.User;
 import com.hsf.entity.Group;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.mapstruct.Mapper;
 
-public class UserMapper {
-    
-    public UserResponseDTO toUserResponseDTO(User user) {
+@Mapper(componentModel="spring")
+public interface UserMapper {
+
+    default UserResponseDTO toUserResponseDTO(User user) {
         UserResponseDTO dto = new UserResponseDTO();
         dto.setId(user.getId());
         dto.setName(user.getName());
@@ -23,7 +25,8 @@ public class UserMapper {
         return dto;
     }
 
-    public User toUserEntity(UserRequestDTO dto) {
+    
+    default User toUserEntity(UserRequestDTO dto) {
         User user = new User();
         user.setWinUser(dto.getWinUser());
         user.setName(dto.getName());
