@@ -2,10 +2,6 @@ package com.hsf.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import com.hsf.service.UserService;
 import com.hsf.dto.UserRequestDTO;
 import com.hsf.dto.UserResponseDTO;
@@ -15,9 +11,9 @@ import com.hsf.mapper.UserMapper;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -49,7 +45,7 @@ public class UserController {
     }
     
     @GetMapping("/{id}")
-    public UserResponseDTO getById(Long id){
+    public UserResponseDTO getById(@PathVariable Long id){
 
          User user = userService.getUserById(id);
          return userMapper.toUserResponseDTO(user);

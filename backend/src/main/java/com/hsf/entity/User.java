@@ -39,7 +39,7 @@ public class User {
     private String fax;
 
     @Column(nullable = false)
-    private boolean active;
+    private boolean active = true;
     
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

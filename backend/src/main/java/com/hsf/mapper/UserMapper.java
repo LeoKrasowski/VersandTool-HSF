@@ -17,6 +17,7 @@ public interface UserMapper {
         dto.setEmail(user.getEmail());
         dto.setAdresse(user.getAdresse());
         dto.setTelefon(user.getTelefon());
+        dto.setFirma(user.getFirma());
         dto.setFax(user.getFax());
         Set<String> groupNames = user.getGroups().stream()
                                      .map(Group::getName)
@@ -33,6 +34,7 @@ public interface UserMapper {
         user.setEmail(dto.getEmail());
         user.setAdresse(dto.getAdresse());
         user.setTelefon(dto.getTelefon());
+        user.setFirma(dto.getFirma());
         user.setFax(dto.getFax());
         // Note: Groups mapping is not handled here
         return user;
