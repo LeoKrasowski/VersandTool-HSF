@@ -3,7 +3,11 @@ package com.hsf.controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.hsf.service.UserService;
+import com.hsf.dto.UserRequestDTO;
 import com.hsf.dto.UserResponseDTO;
 import com.hsf.entity.User;
 import com.hsf.mapper.UserMapper;
@@ -11,6 +15,8 @@ import com.hsf.mapper.UserMapper;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -40,4 +46,17 @@ public class UserController {
         return userResponseDTOs;
     }
     
+    @GetMapping("/{id}")
+    public UserResponseDTO getById(Long id){
+
+         User user = userService.getUserById(id);
+         return userMapper.toUserResponseDTO(user);
+    }
+
+    @PostMapping("/add")
+    public UserResponseDTO addUser(@RequestBody UserRequestDTO userRequestDTO){  //frontend layer
+
+        User user = userService.createUser(userMapper.toUserEntity(userRequestDTO)); //service layer
+        return userMapper.toUserResponseDTO(user); //return to frontend
+    }
 }

@@ -23,7 +23,7 @@ public class UserMapper {
         return dto;
     }
 
-    public static User toUserEntity(UserRequestDTO dto) {
+    public User toUserEntity(UserRequestDTO dto) {
         User user = new User();
         user.setWinUser(dto.getWinUser());
         user.setName(dto.getName());
