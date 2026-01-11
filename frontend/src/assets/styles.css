@@ -1,0 +1,20 @@
+:root {
+  --color-accent: rgb(196, 12, 14);
+  --color-footer-header: rgb(71, 82, 93);
+  --color-background: #ffffff;
+}
+
+body {
+  background-color: var(--color-background);
+  color: #000;
+}
+
+header, footer {
+  background-color: var(--color-footer-header);
+  color: #fff;
+  padding: 1rem;
+}
+
+header img {
+  height: 40px;
+}
