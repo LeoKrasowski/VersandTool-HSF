@@ -85,6 +85,10 @@
   margin-top: 2.5rem;     /* vertical align */
 }
 
+.table.table-striped.table-bordered {
+  margin-top: -0.5rem;
+}
+
 .page-strip {
   width: 100%;                 
   height: 5px;                 
