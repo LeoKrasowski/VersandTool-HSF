@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h2 class="mb-3">Users</h2>
-
+  <!-- Page header with icon -->
+  <span class="page-text-img-title">
+    <img src="@/assets/people.png" alt="People" class="page-icon"/>
+    <span class="page-title">Users</span>
+  </span>
+  <!-- div for content -->
+  <div class="page-content">
     <!-- Button add -->
     <button class="btn btn-primary mb-3" @click="showAddForm = true">
       Add User
@@ -76,7 +80,7 @@
       </form>
     </div>
 
-    <!-- Таблица -->
+    <!-- Tables -->
     <table class="table table-striped table-bordered">
       <thead class="table-dark">
         <tr>
@@ -152,7 +156,7 @@ const startEdit = (user: User) => {
 };
 
 const updateUser = async () => {
-  // Здесь нужно вызвать API update (например PUT)
+  // Here need to call API update (например PUT)
   // await updateUserAPI(editUser.value);
   editUser.value = null;
   await load();
