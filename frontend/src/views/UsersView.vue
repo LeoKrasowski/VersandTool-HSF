@@ -1,9 +1,13 @@
 <template>
   <!-- Page header with icon -->
+   <div class="page-strip">
   <span class="page-text-img-title">
+    
     <img src="@/assets/people.png" alt="People" class="page-icon"/>
     <span class="page-title">Users</span>
+    
   </span>
+  </div>
   <!-- div for content -->
   <div class="page-content">
     <!-- Button add -->
