@@ -13,6 +13,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -57,4 +58,11 @@ public class UserController {
         User user = userService.createUser(userMapper.toUserEntity(userRequestDTO)); //service layer
         return userMapper.toUserResponseDTO(user); //return to frontend
     }
+
+    @PutMapping("/{id}")
+        public UserResponseDTO updateUser(@PathVariable Long id, @RequestBody UserRequestDTO userRequestDTO){ //front
+            User user = userService.updateUser(id, userMapper.toUserEntity(userRequestDTO)); //user service made update func. in params id and mapping to entity
+            return userMapper.toUserResponseDTO(user); // return value in json style
+    }
+
 }
