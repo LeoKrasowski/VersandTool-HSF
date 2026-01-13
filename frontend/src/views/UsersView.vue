@@ -86,7 +86,7 @@
 
     <!-- Tables -->
     <table class="table table-striped table-bordered">
-      <thead class="table-dark">
+      <thead class="table-style">
         <tr>
           <th>ID</th>
           <th>Name</th>
