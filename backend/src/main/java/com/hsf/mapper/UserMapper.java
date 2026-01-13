@@ -19,6 +19,8 @@ public interface UserMapper {
         dto.setTelefon(user.getTelefon());
         dto.setFirma(user.getFirma());
         dto.setFax(user.getFax());
+        dto.setActive(user.isActive());
+        dto.setWinUser(user.getWinUser());
         Set<String> groupNames = user.getGroups().stream()
                                      .map(Group::getName)
                                      .collect(Collectors.toSet());

@@ -51,7 +51,7 @@
     <!-- editing form -->
     <div v-if="editUser" class="card p-3 mb-3">
       <h5>Edit User</h5>
-      <form @submit.prevent="updateUser">
+      <form @submit.prevent="updateUserHandler">
         <div class="mb-2">
           <input v-model="editUser.name" placeholder="Name" class="form-control" />
         </div>
@@ -113,7 +113,7 @@
           <td>{{ u.fax }}</td>
           <td>
             <button class="btn btn-sm btn-warning me-1" @click="startEdit(u)">Edit</button>
-            <button class="btn btn-sm btn-danger" @click="deleteUser(u.id)">Delete</button>
+            <button class="btn btn-sm btn-danger" @click="deleteUser(u.id,u)">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -124,7 +124,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { getAllUsers, createUser} from '@/services/userService';
+import { getAllUsers, createUser, updateUser, deactivateUser } from '@/services/userService';
 import type { User } from '@/services/userService';
 
 const users = ref<User[]>([]);
@@ -140,7 +140,7 @@ const form = ref<User>({
   fax: ''
 });
 
-const editUser = ref<User | null>(null);
+//const editUser = ref<User | null>(null);
 const showAddForm = ref(false);
 
 const load = async () => {
@@ -155,20 +155,24 @@ const addUser = async () => {
   await load();
 };
 
+const editUser = ref<User | null>(null);
+
 const startEdit = (user: User) => {
   editUser.value = { ...user };
 };
 
-const updateUser = async () => {
-  // Here need to call API update (например PUT)
-  // await updateUserAPI(editUser.value);
+const updateUserHandler = async () => {
+  if (!editUser.value || !editUser.value.id) return;
+
+  await updateUser(editUser.value.id, editUser.value);
   editUser.value = null;
   await load();
 };
 
-const deleteUser = async (id: number | undefined) => {
+
+const deleteUser = async (id: number | undefined, user: User) => {
   if (!id) return;
-  // await deleteUserAPI(id);
+  await deactivateUser(id, user);
   await load();
 };
 

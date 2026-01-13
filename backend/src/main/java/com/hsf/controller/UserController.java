@@ -10,6 +10,8 @@ import com.hsf.mapper.UserMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/users")
-public class UserController {
+    public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
@@ -32,7 +34,7 @@ public class UserController {
 
 
     @GetMapping
-    public List<UserResponseDTO> getAll() {
+        public List<UserResponseDTO> getAll() {
         
         List<User> users = userService.getAllUsers(); //List of users from database
         List<UserResponseDTO> userResponseDTOs = new ArrayList<>(); //New lists of DTOs entities
@@ -46,14 +48,14 @@ public class UserController {
     }
     
     @GetMapping("/{id}")
-    public UserResponseDTO getById(@PathVariable Long id){
+        public UserResponseDTO getById(@PathVariable Long id){
 
          User user = userService.getUserById(id);
          return userMapper.toUserResponseDTO(user);
     }
 
     @PostMapping("/add")
-    public UserResponseDTO addUser(@RequestBody UserRequestDTO userRequestDTO){  //frontend layer
+        public UserResponseDTO addUser(@RequestBody UserRequestDTO userRequestDTO){  //frontend layer
 
         User user = userService.createUser(userMapper.toUserEntity(userRequestDTO)); //service layer
         return userMapper.toUserResponseDTO(user); //return to frontend
@@ -64,5 +66,12 @@ public class UserController {
             User user = userService.updateUser(id, userMapper.toUserEntity(userRequestDTO)); //user service made update func. in params id and mapping to entity
             return userMapper.toUserResponseDTO(user); // return value in json style
     }
+
+    @PutMapping("/{id}/deactivate")
+        public ResponseEntity<Void> deactivateUser(@PathVariable Long id, @RequestBody UserRequestDTO userRequestDTO){
+            userService.deactivateUser(id, userMapper.toUserEntity(userRequestDTO));
+            return ResponseEntity.ok().build();
+        }
+    
 
 }
