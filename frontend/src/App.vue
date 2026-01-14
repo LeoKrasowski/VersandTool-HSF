@@ -2,7 +2,7 @@
   <div id="app">
 
     <!-- HEADER с навигацией -->
-    <header class="app-header d-flex align-items-center justify-content-between">
+    <header class="app-header d-flex align-items-center ">
       <!-- Логотип + название -->
       <div class="header-left d-flex align-items-center gap-2">
         <img src="@/assets/logo.png" alt="Logo" class="logo" />
@@ -10,7 +10,7 @@
       </div>
 
       <!-- Navigation -->
-      <nav class="header-nav d-flex gap-3">
+      <nav class="header-nav">
         <router-link to="/users" class="nav-item" active-class="active-link">
           <img src="@/assets/profile-picture.png" alt="Profile-picture" class="nav-icon" />
           <span>Users</span>

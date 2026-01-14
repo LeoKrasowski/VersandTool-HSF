@@ -4,7 +4,7 @@
   <span class="page-text-img-title">
     
     <img src="@/assets/people.png" alt="People" class="page-icon"/>
-    <span class="page-title">Users</span>
+    <span class="page-title">Benutzer</span>
     
   </span>
   </div>
@@ -12,12 +12,12 @@
   <div class="page-content">
     <!-- Button add -->
     <button class="btn btn-primary mb-3" @click="showAddForm = true">
-      Add User
+      Benutzer +
     </button>
 
     <!-- adding form -->
     <div v-if="showAddForm" class="card p-3 mb-3">
-      <h5>Add User</h5>
+      <h5>Benutzer hinzufügen</h5>
       <form @submit.prevent="addUser">
         <div class="mb-2">
           <input v-model="form.name" placeholder="Name" class="form-control" />

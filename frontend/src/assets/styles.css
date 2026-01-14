@@ -7,10 +7,11 @@
 .app-header {
   background-color: rgb(71, 82, 93);
   color: #fff;
-  padding: 0.5rem 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | menu | right */
   align-items: center;
-  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  align-items: center;
 }
 /* logo+text */
 .header-left .logo {
@@ -22,24 +23,23 @@
 }
 /* NAVIGATION */
 .header-nav {
+  justify-self: center;  /* center menu */
   display: flex;
-  align-items: center;
   gap: 1rem;
+  margin-left: 2rem;
 }
 /* menu point */
 .nav-item {
-  display: inline-flex;
   align-items: center;
-  gap: 0.1rem;
   text-decoration: none;
   color: rgb(252, 247, 247);
-  font-weight: 500;
+  font-weight: 490;
 }
 /* icon */
 .nav-icon {
-  width: 20px;
-  height: 20px;
-  color: rgb(90, 89, 89);
+  width: 15px;
+  height: 15px;
+  margin-right: 0.2rem;
 }
 /* hover */
 .nav-item:hover {
@@ -49,7 +49,8 @@
 /* active dir */
 .active-link {
   font-weight: 700;
-  border-bottom: 2px solid rgb(196, 12, 14);
+  font-size:medium;
+  color: #ff6868;
 }
 /*icon of the page*/
 .page-text-img-title {
@@ -89,9 +90,18 @@
   margin-top: -0.5rem;
 }
 
-.table.table-striped.table-bordered.table-style {
-  background-color:aqua;
-  margin-top: 1rem;
+.table.table-striped.table-bordered thead th { /*head of table*/
+  background-color:rgb(119, 136, 153);
+  text-align: center;
+}
+
+button.btn.btn-sm.btn-warning.me-1 {
+  background-color: rgb(245, 224, 157);
+}
+
+button.btn.btn-sm.btn-danger {
+  background-color:rgb(224, 69, 69);
+
 }
 
 .page-strip {
@@ -125,6 +135,24 @@ main.flex-grow-1 {
   color: rgb(216, 196, 173);
   margin-left: 0.2rem;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.header-title::before {
+  content: "";
+  display:inline-block;
+  width: 1px;               
+  height: 20px;             
+  background-color: rgb(216, 196, 173);
+  margin-right: 5px;
+}
+
+.header-title::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background-color: rgb(216, 196, 173);
+  margin-left: 5px;
 }
 
 .footer-description{
