@@ -12,11 +12,11 @@
     <nav class="header-nav">
       <router-link to="/users" class="nav-item" active-class="active-link">
         <img src="@/assets/profile-picture.png" class="nav-icon" />
-        <span>{{ $t('Users') }}</span>
+        <span>{{ $t('users') }}</span>
       </router-link>
 
       <router-link to="/orders" class="nav-item" active-class="active-link">
-        <span>Orders</span>
+        <span>{{$t('*next')}}</span>
       </router-link>
     </nav>
 

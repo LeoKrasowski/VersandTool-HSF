@@ -4,7 +4,7 @@
   <span class="page-text-img-title">
     
     <img src="@/assets/people.png" alt="People" class="page-icon"/>
-    <span class="page-title">Benutzer</span>
+    <span class="page-title">{{ $t('users') }}</span>
     
   </span>
   </div>
@@ -12,7 +12,7 @@
   <div class="page-content">
     <!-- Button add -->
     <button class="btn btn-primary mb-3" @click="showAddForm = true">
-      Benutzer +
+      {{ $t('addUser') }}
     </button>
 
     <!-- adding form -->
@@ -42,15 +42,15 @@
         </div>
         <!-- adding another for UserRequestDTO -->
         <button type="submit" class="btn" :style="{backgroundColor: 'var(--color-accent)', color: '#fff'}">
-          Save
+          {{$t('save')}}
         </button>
-        <button type="button" class="btn btn-secondary ms-2" @click="showAddForm = false">Cancel</button>
+        <button type="button" class="btn btn-secondary ms-2" @click="showAddForm = false">{{$t('cancel')}}</button>
       </form>
     </div>
 
     <!-- editing form -->
     <div v-if="editUser" class="card p-3 mb-3">
-      <h5>Edit User</h5>
+      <h5>{{ $t('editUser') }}</h5>
       <form @submit.prevent="updateUserHandler">
         <div class="mb-2">
           <input v-model="editUser.name" placeholder="Name" class="form-control" />
@@ -78,9 +78,9 @@
         </div>
         <!-- more fields -->
         <button type="submit" class="btn" :style="{backgroundColor: 'var(--color-accent)', color: '#fff'}">
-          Update
+          {{$t('update')}}
         </button>
-        <button type="button" class="btn btn-secondary ms-2" @click="editUser = null">Cancel</button>
+        <button type="button" class="btn btn-secondary ms-2" @click="editUser = null">{{$t('cancel')}}</button>
       </form>
     </div>
 
@@ -89,7 +89,7 @@
       <thead class="table-style">
         <tr>
           <th>ID</th>
-          <th>Name</th>
+          <th>{{$t('name')}}</th>
           <th>Email</th>
           <th>Win user</th>
           <th>Active</th>
@@ -97,7 +97,7 @@
           <th>Adresse</th>
           <th>Telefon</th>
           <th>Fax</th>
-          <th>Actions</th>
+          <th>{{$t('Actions')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -112,8 +112,8 @@
           <td>{{ u.telefon }}</td>
           <td>{{ u.fax }}</td>
           <td>
-            <button class="btn btn-sm btn-warning me-1" @click="startEdit(u)">Edit</button>
-            <button class="btn btn-sm btn-danger" @click="deleteUser(u.id,u)">Delete</button>
+            <button class="btn btn-sm btn-warning me-1" @click="startEdit(u)">{{$t('edit')}}</button>
+            <button class="btn btn-sm btn-danger" @click="deleteUser(u.id,u)">{{$t('delite')}}</button>
           </td>
         </tr>
       </tbody>
@@ -126,6 +126,16 @@
 import { ref, onMounted } from 'vue';
 import { getAllUsers, createUser, updateUser, deactivateUser } from '@/services/userService';
 import type { User } from '@/services/userService';
+import { watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+// current lang
+const currentLang = ref(locale.value)
+// then changing select changing lang too
+const changeLang = () => {
+  locale.value = currentLang.value
+}
 
 const users = ref<User[]>([]);
 

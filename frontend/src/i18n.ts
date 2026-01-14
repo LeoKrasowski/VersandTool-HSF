@@ -1,19 +1,29 @@
 import { createI18n } from 'vue-i18n'
 
 const messages = {
-  en: {
-    users: 'Users',
-    addUser: 'Add User',
-    save: 'Save',
-    cancel: 'Cancel',
-    editUser: 'Edit User',
+  de: {
+    users: 'Benutzer',
+    addUser: 'Benutzer hinzufügen',
+    save: 'Speichern',
+    cancel: 'Abbrechen',
+    editUser: 'Benutzer bearbeiten',
+    update: 'Aktualisieren',
+    name: 'Name',
+    actions: 'Aktionen',
+    edit: 'Bearbeiten',
+    delite: 'Löschen',
+
   },
-  ru: {
-    users: 'Пользователи',
-    addUser: 'Добавить пользователя',
-    save: 'Сохранить',
-    cancel: 'Отмена',
-    editUser: 'Редактировать пользователя',
+  sk: {
+    users: 'Používateľ',
+    addUser: 'Pridať používateľa',
+    save: 'Uložiť',
+    cancel: 'Zrušiť',
+    editUser: 'Upraviť používateľa',
+    update: 'Aktualizovať',
+    name: 'Meno',
+    edit: 'Upraviť',
+    delite: 'Vymazať',
   }
 }
 
