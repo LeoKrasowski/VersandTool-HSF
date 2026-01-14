@@ -1,13 +1,19 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 //import type { RouteRecordRaw } from 'vue-router';
 import UsersView from '../views/UsersView.vue';
 
-const routes = [
+interface MyRouteMeta {
+  title?: string
+  titleKey?: string
+}
+
+const routes: Array<RouteRecordRaw & { meta: MyRouteMeta }> = [
   {
     path: '/users',
     name: 'Users',
-    component: UsersView
-  }
+    component: UsersView,
+    meta: { title: 'Users', titleKey: 'users' }
+  },
 ];
 
 const router = createRouter({

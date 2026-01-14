@@ -5,7 +5,7 @@
       <div class="page-strip"></div>
         <span class="page-text-img-title">
           <img src="@/assets/people.png" alt="People" class="page-icon"/>
-      <span class="page-title">{{ $t('users') }}</span>
+      <span class="page-title"><!--{{ $t('users') }}-->{{ pageTitle }} </span> <!--used page naming from route-->
     </span>
   </div>
   
@@ -129,6 +129,12 @@ import { getAllUsers, createUser, updateUser, deactivateUser } from '@/services/
 import type { User } from '@/services/userService';
 import { watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute() 
+const { t } = useI18n() 
+const pageTitle = computed(() => t(route.meta.titleKey as string || '')) //used for naming by route
 
 const { locale } = useI18n()
 // current lang
