@@ -4,8 +4,10 @@
   <header class="app-header">
     <!-- LEFT -->
     <div class="header-left d-flex gap-2">
+      <a href="/">
       <img src="@/assets/logo.png" alt="Logo" class="logo" />
-      <h4 class="header-title">Versand Tool HSF</h4>
+      </a>
+      <a class="header-title" href="/">Versand Tool HSF</a>
     </div>
 
     <!-- CENTER -->
@@ -31,9 +33,12 @@
 
 
     <!-- MAIN -->
-    <main class="flex-grow-1">
-      <router-view />
-    </main>
+      
+      <main class="flex-grow-1">
+        <div class="page-strip"></div>
+        <router-view />
+      </main>
+      
 
     <!-- FOOTER -->
     <footer>

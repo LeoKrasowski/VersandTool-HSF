@@ -12,13 +12,54 @@
   align-items: center;
   padding: 0.5rem 1rem;
 }
+
+header img {
+  height: 50px;
+  margin-right: 10px; 
+  margin-left: 20px;  
+  margin-top: 1px;
+  margin-bottom: 2px;   
+}
 /* logo+text */
 .header-left .logo {
   height: 45px;
+  margin-left: 0.2rem;
 }
+
+div > .header-title {
+  text-decoration: none;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.header-title::before {
+  content: "";
+  width: 1px;
+  height: 30px;
+  background-color: rgb(216, 196, 173);
+  margin-right: 5px;
+  align-items:center;
+}
+
+.header-title::after {
+  content: "";
+  width: 1px;
+  height: 30px;
+  background-color: rgb(216, 196, 173);
+  margin-left: 5px;
+  align-items:center;
+}
+
 .header-title {
-  margin: 0;
-  font-weight: 600;
+  display:flex;
+  align-items:center;
+  margin: 0 0 0 0.5rem;
+  color: rgb(216, 196, 173);
+  margin-left: 0.5rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size:1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 /* NAVIGATION */
 .header-nav {
@@ -26,12 +67,6 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-}
-
-.lang-switcher {
-  justify-self: end;
-  display: flex;
-  align-items: center;
 }
 /* menu point */
 .nav-item {
@@ -57,12 +92,47 @@
   font-size:medium;
   color: #ff6868;
 }
+
+.lang-switcher {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+.lang-select {
+  color: #fff;
+  background-color: var(--color-footer-header); 
+  border: none;
+  padding: 0.1rem -0.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.lang-select:hover {
+  color: #fff;
+  background-color:var(--color-footer-header); 
+}
+
+.lang-select:focus {
+  outline: none;
+  border: none;
+}
+/*BODY*/
+body {
+  background-color: var(--color-background);
+  color: #000;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 /*icon + naming of the page */
 .page-text-img-title {
   display: inline-flex;       /* flex-cont for horizontal align */
   align-items: center;        /* vertical align */
   gap: 0.1rem;
-  margin-top: -0.5rem;
+  margin-top: 0.1rem;
   margin-left: 2rem;
   margin-bottom: 1rem;
 }
@@ -117,20 +187,10 @@ button.btn.btn-sm.btn-danger {
 }
 
 .stripe{
+  margin-top: -16px;
   width: 100vw;
-  height: 4rem;
-  position: relative;
-  display: block;
+  height: 2.5rem;
   background-color: rgb(243, 238, 232); 
-}
-
-body {
-  background-color: var(--color-background);
-  color: #000;
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 #app {
@@ -143,40 +203,7 @@ body {
 main.flex-grow-1 {
   flex: 1;            /* all places between header и footer */
 }
-
-.header-title {
-  display:flex;
-  align-items: center;
-  height: -50rem;
-  margin: 0 0 0 0.5rem;
-  color: rgb(216, 196, 173);
-  margin-left: 0.5rem;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1.0rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-}
-
-
-.header-title::before {
-  content: "";
-  display:inline-block;
-  width: 1px;               
-  height: 20px;             
-  background-color: rgb(216, 196, 173);
-  margin-right: 5px;
-}
-
-.header-title::after {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  height: 20px;
-  background-color: rgb(216, 196, 173);
-  margin-left: 5px;
-}
-
+/*FOOTER*/
 .footer-description{
   margin: 0.5rem 0 0 0; 
   font-weight: normal;
@@ -196,38 +223,10 @@ footer {
   color: #fff;
 }
 
-header img {
-  height: 50px;
-  margin-right: 10px; 
-  margin-left: 20px;  
-  margin-top: 1px;
-  margin-bottom: 2px;   
-}
-
 footer .footer-logo {
   height: 50px;
   position: absolute;
   right: 3rem;
   bottom: 1rem;
-}
-
-.lang-select {
-  color: #fff;                       
-  background-color: var(--color-footer-header); 
-  border: none;                      
-  padding: 0.1rem -0.2rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s all;
-}
-
-.lang-select:hover {
-  color: #fff;
-  background-color:var(--color-footer-header); 
-}
-
-.lang-select:focus {
-  outline: none;
-  border: none;
 }
 

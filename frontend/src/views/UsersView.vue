@@ -2,7 +2,6 @@
   <!-- Page header with icon -->
    
     <div class="stripe">
-      <div class="page-strip"></div>
         <span class="page-text-img-title">
           <img src="@/assets/people.png" alt="People" class="page-icon"/>
       <span class="page-title"><!--{{ $t('users') }}-->{{ pageTitle }} </span> <!--used page naming from route-->
