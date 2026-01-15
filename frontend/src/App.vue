@@ -18,10 +18,9 @@
       </router-link>
 
       <router-link to="/orders" class="nav-item" active-class="active-link">
-        <span>{{$t('*next')}}</span>
+        <span>{{$t('*next link')}}</span>
       </router-link>
     </nav>
-
     <!-- RIGHT -->
     <div class="lang-switcher">
       <select v-model="currentLang" @change="changeLang" class="lang-select">
@@ -30,26 +29,21 @@
       </select>
     </div>
   </header>
-
-
     <!-- MAIN -->
-      
       <main class="flex-grow-1">
         <div class="page-strip"></div>
         <router-view />
+        
       </main>
-      
-
     <!-- FOOTER -->
     <footer>
       © {{ new Date().getFullYear() }} HSF Internal software
       <div class="footer-description"> Application which contains logistics, invoices and another functions </div>
     </footer>
-
   </div>
 </template>
 
- <script setup lang="ts">
+<script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 

@@ -1,7 +1,16 @@
 :root {
-  --color-accent: rgb(196, 12, 14);
+  --color-accent: #c2382b;
   --color-footer-header: rgb(71, 82, 93);
   --color-background: #ffffff;
+  --color-accent-gray: #d6d7dc;
+  --color-accent-grayBlue: #3a4e6e;
+  --color-accent-silver: #d6d7dc;
+  --color-accent-green: #40b488;
+  --color-accent-lightGreen: #80f077;
+  --color-accent-biege: #e6e0be;
+  --color-accent-BlueCalm:#80b3ba;
+  --color-accent-BlueShade:#D1DCEE;
+
 }
 /* HEADER */
 .app-header {
@@ -126,6 +135,50 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+
+/* begin state */
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);;
+}
+
+/* ctive state */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.25s ease;
+}
+
+/* final state */
+.slide-fade-enter-to,
+.slide-fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-submit{
+  background-color: var(--color-accent-green);
+  color: #fff;
+  border: none;
+  padding: 8px 22px;
+}
+.btn-submit:hover {
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.2)
+}
+
+.btn-ord.mb-3 {
+  border: none;
+  padding: 8px 22px;
+  background-color: var(--color-accent-BlueShade);
+  
+}
+
+.btn-ord.mb-3:hover {
+  border: none;
+  padding: 8px 22px;
+  background-color: var(--color-accent-green);
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.2)
 }
 /*icon + naming of the page */
 .page-text-img-title {
