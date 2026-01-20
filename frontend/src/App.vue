@@ -17,8 +17,9 @@
         <span>{{ $t('users') }}</span>
       </router-link>
 
-      <router-link to="/orders" class="nav-item" active-class="active-link">
-        <span>{{$t('*next link')}}</span>
+      <router-link to="/dashboard" class="nav-item" active-class="active-link">
+        <img src="@/assets/dashboard.png" class="nav-icon">
+        <span>{{ $t('dashboard') }}</span>
       </router-link>
     </nav>
     <!-- RIGHT -->
@@ -31,10 +32,8 @@
   </header>
     <!-- MAIN -->
       <main class="flex-grow-1">
-        <div class="page-strip"></div>
-        <router-view />
-        
-      </main>
+      <router-view />
+    </main>
     <!-- FOOTER -->
     <footer>
       © {{ new Date().getFullYear() }} HSF Internal software

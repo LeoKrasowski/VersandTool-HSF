@@ -1,7 +1,7 @@
 <template>
   <!-- Page header with icon -->
    
-    <div class="stripe">
+    <div class="stripe-page-name">
         <span class="page-text-img-title">
           <img src="@/assets/people.png" alt="People" class="page-icon"/>
       <span class="page-title"><!--{{ $t('users') }}-->{{ pageTitle }} </span> <!--used page naming from route-->
@@ -26,25 +26,25 @@
     <!-- adding form -->
    <transition name="slide-fade"> 
     <div v-if="showAddForm" class="add-form card p-3 mb-3">
-      <h5>Benutzer hinzufügen</h5>
+      <h5>{{ $t('addUser') }}</h5>
       <form @submit.prevent="addUser">
         <div class="mb-2">
-          <input v-model="form.name" placeholder="Name" class="form-control" />
+          <input v-model="form.name" :placeholder= "$t('name')" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="form.email" placeholder="Email" class="form-control" />
+          <input v-model="form.email" :placeholder="$t('Email')" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="form.firma" placeholder="Firma" class="form-control" />
+          <input v-model="form.firma" :placeholder="$t('firma')" class="form-control" />
         </div>
         <div class="mb-2">
           <input v-model="form.winUser" placeholder="WinUser" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="form.adresse" placeholder="Adresse" class="form-control" />
+          <input v-model="form.adresse" :placeholder="$t('adresse')" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="form.telefon" placeholder="Telefon" class="form-control" />
+          <input v-model="form.telefon" :placeholder="$t('telefon')" class="form-control" />
         </div>
         <div class="mb-2">
           <input v-model="form.fax" placeholder="Fax" class="form-control" />
@@ -62,25 +62,25 @@
       <h5>{{ $t('editUser') }}</h5>
       <form @submit.prevent="updateUserHandler">
         <div class="mb-2">
-          <input v-model="editUser.name" placeholder="Name" class="form-control" />
+          <input v-model="editUser.name" :placeholder="$t('name')" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="editUser.email" placeholder="Email" class="form-control" />
+          <input v-model="editUser.email" :placeholder="$t('Email')" class="form-control" />
         </div>
         <div class="mb-2">
           <input v-model="editUser.winUser" placeholder="WinUser" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="editUser.active" placeholder="Active" class="form-control" />
+          <input v-model="editUser.active" :placeholder="$t('active')" class="form-control" />
         </div>
         <div class="mb-2">
           <input v-model="editUser.firma" placeholder="Firma" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="editUser.adresse" placeholder="Adresse" class="form-control" />
+          <input v-model="editUser.adresse" :placeholder="$t('adresse')" class="form-control" />
         </div>
         <div class="mb-2">
-          <input v-model="editUser.telefon" placeholder="Telefon" class="form-control" />
+          <input v-model="editUser.telefon" :placeholder="$t('telefon')" class="form-control" />
         </div>
         <div class="mb-2">
           <input v-model="editUser.fax" placeholder="Fax" class="form-control" />
@@ -97,21 +97,19 @@
     <table class="table table-striped table-bordered">
       <thead class="table-style">
         <tr>
-          <th>ID</th>
           <th>{{$t('name')}}</th>
           <th>Email</th>
           <th>Win user</th>
-          <th>Active</th>
-          <th>Firma</th>
-          <th>Adresse</th>
-          <th>Telefon</th>
+          <th>{{$t('active')}}</th>
+          <th>{{$t('firma')}}</th>
+          <th>{{$t('adresse')}}</th>
+          <th>{{$t('telefon')}}</th>
           <th>Fax</th>
-          <th>{{$t('Actions')}}</th>
+          <th>{{$t('actions')}}</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="u in users" :key="u.id">
-          <td>{{ u.id }}</td>
           <td>{{ u.name }}</td>
           <td>{{ u.email }}</td>
           <td>{{ u.winUser }}</td>

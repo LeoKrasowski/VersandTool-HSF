@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hsf.dto.CustomerRequestDTO;
 import com.hsf.dto.CustomerResponseDTO;
-import com.hsf.dto.UserResponseDTO;
 import com.hsf.entity.Customer;
-import com.hsf.entity.User;
 import com.hsf.mapper.CustomerMapper;
 import com.hsf.service.CustomerService;
 

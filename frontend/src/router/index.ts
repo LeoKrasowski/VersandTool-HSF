@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 //import type { RouteRecordRaw } from 'vue-router';
 import UsersView from '../views/UsersView.vue';
+import Dashboard from '@/views/Dashboard.vue';
+import StartPage from '@/views/StartPage.vue';
 
 interface MyRouteMeta {
   title?: string
@@ -9,11 +11,27 @@ interface MyRouteMeta {
 
 const routes: Array<RouteRecordRaw & { meta: MyRouteMeta }> = [
   {
+    path: '/',
+    name: 'startpage',
+    component: StartPage,
+    meta: {titleKey: 'start'}
+  },
+
+  {
     path: '/users',
     name: 'Users',
     component: UsersView,
     meta: { title: 'Users', titleKey: 'users' }
   },
+
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    meta: { title: 'Dashboard', titleKey: 'dashboard'}
+  },
+
+
 ];
 
 const router = createRouter({

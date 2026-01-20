@@ -12,7 +12,12 @@ const messages = {
     actions: 'Aktionen',
     edit: 'Bearbeiten',
     delite: 'Löschen',
-
+    firma: 'Firma',
+    adresse: 'Adresse',
+    telefon: 'Telefon',
+    active: 'Active',
+    dashboard: 'Dashboard',
+    daten_importieren: 'Daten importieren',
   },
   sk: {
     users: 'Používateľ',
@@ -22,8 +27,15 @@ const messages = {
     editUser: 'Upraviť používateľa',
     update: 'Aktualizovať',
     name: 'Meno',
+    actions: 'Akcie',
     edit: 'Upraviť',
     delite: 'Vymazať',
+    firma: 'Podnik',
+    adresse: 'Adresa',
+    telefon: 'Telefón',
+    active: 'Aktívne',
+    dashboard: 'Prehľad',
+    daten_importieren: 'Importovať údaje'
   }
 }
 
