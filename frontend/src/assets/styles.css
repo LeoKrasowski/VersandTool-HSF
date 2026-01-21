@@ -274,13 +274,8 @@ footer {
   padding: 1rem;
   background-color: var(--color-footer-header);
   color: #fff;
-}
-
-footer .footer-logo {
-  height: 50px;
-  position: absolute;
-  right: 3rem;
-  bottom: 1rem;
+  height: 4rem;
+  margin-top: 1rem;
 }
 /* ===== CONTENT ===== */
 .erp-content {
@@ -354,67 +349,84 @@ footer .footer-logo {
 }
 
 /* MAIN GRID */
-.dashboard-main {
-  flex: 1;
-  padding: 0.2rem;
-  margin-left: 0.2rem;
-}
-
 .dashboard-grid {
+  margin: 0 1rem 0 1rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   gap: 1.5rem;
 }
 
 .dashboard-block {
-  position: relative;
   background-color: #fff;
   padding: 1rem;
   border-radius: 6px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+
   display: flex;
   flex-direction: column;
-  align-items: start;
+  gap: 0.6rem;
 
+  transition: 
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dashboard-block:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transform: translateY(-5px);
 }
 
 .tile-btn {
   border: none;
-  margin: 0.2rem 0.3rem 0.3rem 0.2rem; 
-  font-family: Arial, sans-serif;
-  background-color: rgba(247, 244, 244, 0.87);
-  border-radius: 10%;
+  background: transparent;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  cursor: pointer;
+  text-align: left;
+
+  transition: color 0.2s ease;
 }
 
 .tile-btn:hover {
-  transform: scale(110%);
-  box-shadow: 0 4px 10px rgba(0,0,0.1,0.1);
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
-.title-icon {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  width: 30px;
-  height: 30px;
-  margin-left: 0.2rem;
+
+ .title-icon-in {
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.title-icon-tr {
-  position: absolute;
-  top: 0.7rem;
-  right: 1.2rem;
-  width: 45px;
-  height: 45px;
-  margin-left: 0.2rem;
+/*title stripe on start page*/
+.ttl-strp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  height: 2.6rem;
+  padding: 0 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
-.title-icon-in {
+.ttl-strp h5 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.ttl-strp-line {
   position: absolute;
-  top: 0.7rem;
-  right: 1.2rem;
-  width: 40px;
-  height: 40px;
-  margin-left: 0.2rem;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  bottom: -0.5rem;
+  background-color: rgb(243, 238, 232);
+  z-index: 0;
 }

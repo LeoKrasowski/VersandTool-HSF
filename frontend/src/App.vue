@@ -9,6 +9,7 @@
       </a>
       <a class="header-title" href="/">Versand Tool HSF</a>
     </div>
+    
 
     <!-- CENTER -->
     <nav class="header-nav">
@@ -30,6 +31,7 @@
       </select>
     </div>
   </header>
+  <div class="page-strip"></div>
     <!-- MAIN -->
       <main class="flex-grow-1">
       <router-view />
