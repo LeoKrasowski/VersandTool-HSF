@@ -35,6 +35,10 @@ header img {
   margin-left: 0.2rem;
 }
 
+.logo:hover {
+  transform: scale(105%);
+}
+
 div > .header-title {
   text-decoration: none;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -70,6 +74,11 @@ div > .header-title {
   letter-spacing: 0.03em;
   white-space: nowrap;
 }
+
+.header-title:hover {
+  transform: scale(105%);
+  color: rgb(218, 171, 117); ;
+}
 /* NAVIGATION */
 .header-nav {
   justify-self: center;
@@ -86,14 +95,18 @@ div > .header-title {
 }
 /* icon */
 .nav-icon {
-  width: 15px;
-  height: 15px;
+  width: 1.2rem;
+  height: 1.2rem;
   margin-right: 0.2rem;
+}
+.nav-icon:hover {
+  transform: scale(110%);
 }
 /* hover */
 .nav-item:hover {
   text-decoration: underline;
   color: rgb(250, 194, 194);
+  transform: scale(105%);
 }
 /* active dir */
 .active-link {
@@ -106,6 +119,7 @@ div > .header-title {
   justify-self: end;
   display: flex;
   align-items: center;
+  
 }
 
 .lang-select {
@@ -115,7 +129,7 @@ div > .header-title {
   padding: 0.1rem -0.2rem;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.2s all;
+  
 }
 
 .lang-select:hover {
@@ -347,7 +361,6 @@ footer {
   background-color: #f5f5f5;
   font-family: Arial, sans-serif;
 }
-
 /* MAIN GRID */
 .dashboard-grid {
   margin: 0 1rem 0 1rem;
@@ -372,9 +385,14 @@ footer {
     transform 0.25s ease;
 }
 
+.dashboard-block:hover .ttl-strp-line {
+  background-color: var(--color-accent-gray);
+}
+
 .dashboard-block:hover {
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
   transform: translateY(-5px);
+
 }
 
 .tile-btn {
@@ -392,7 +410,6 @@ footer {
   color: var(--color-accent);
   text-decoration: underline;
 }
-
 
  .title-icon-in {
   width: 2.2rem;
@@ -421,6 +438,7 @@ footer {
   white-space: nowrap;
   font-weight: 600;
 }
+
 .ttl-strp-line {
   position: absolute;
   top: -0.5rem;
@@ -430,3 +448,4 @@ footer {
   background-color: rgb(243, 238, 232);
   z-index: 0;
 }
+

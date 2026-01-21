@@ -14,7 +14,7 @@
     <!-- CENTER -->
     <nav class="header-nav">
       <router-link to="/users" class="nav-item" active-class="active-link">
-        <img src="@/assets/profile-picture.png" class="nav-icon" />
+        <img src="@/assets/admin.png" class="nav-icon" alt="admin"/>
         <span>{{ $t('users') }}</span>
       </router-link>
 
