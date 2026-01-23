@@ -6,8 +6,8 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import postalData from '@/assets/geo/zipcodes.ch.json' // JSON with code and coordinates
-
+import postalData from '@/assets/geo/zipcodes.ch.json' // JSON with code and coordinates 
+//import postalData from '@/assets/geo/zipcodes.at.json'
 
 onMounted(async () => {
   const L = await import('leaflet')
@@ -59,9 +59,9 @@ onMounted(async () => {
 
 <style scoped>
 .map-wrapper {
-  height: calc(100vh - 4rem);
-  width: 100%;
-  max-width: 1400px;
+  height: calc(80vh - 6rem);
+  width: 80%;
+  max-width: 1220px;
   margin: 2rem auto;
   border-radius: 16px;
   overflow: hidden;
