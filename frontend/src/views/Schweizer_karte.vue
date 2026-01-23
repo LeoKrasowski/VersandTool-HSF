@@ -6,8 +6,8 @@
 
 <script setup>
 import { onMounted } from 'vue'
-// JSON с почтовыми кодами и координатами
-import postalData from '@/assets/geo/zipcodes.ch.json'
+import postalData from '@/assets/geo/zipcodes.ch.json' // JSON with code and coordinates
+
 
 onMounted(async () => {
   const L = await import('leaflet')
@@ -17,28 +17,25 @@ onMounted(async () => {
   await import('leaflet.markercluster/dist/MarkerCluster.css')
   await import('leaflet.markercluster/dist/MarkerCluster.Default.css')
 
-  // Создаём карту
+  // init map
   const map = L.map('map', { attributionControl: false }).setView([46.8, 8.3], 7)
 
-  // TileLayer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 6,
     maxZoom: 18
   }).addTo(map)
 
-  // Attribution
+  // custom attribution
   L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map)
-  map.attributionControl.addAttribution(
-    '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-  )
+  map.attributionControl.addAttribution('© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>')
 
-  // Кластер маркеров
+  // marker clustering
   const markers = L.markerClusterGroup()
 
   postalData.forEach(item => {
     const lat = parseFloat(item.latitude)
     const lng = parseFloat(item.longitude)
-    if (!lat || !lng) return // безопасно пропускаем пустые координаты
+    if (!lat || !lng) return
 
     const marker = L.marker([lat, lng], {
       title: `${item.zipcode} — ${item.place}`
@@ -49,7 +46,7 @@ onMounted(async () => {
 
   map.addLayer(markers)
 
-  // Автоцентрирование по всем маркерам
+  // autocenter by all markers
   const coords = postalData
     .map(item => [parseFloat(item.latitude), parseFloat(item.longitude)])
     .filter(c => !isNaN(c[0]) && !isNaN(c[1]))
@@ -71,7 +68,6 @@ onMounted(async () => {
   box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Zoom controls */
 .leaflet-control-zoom {
   border-radius: 10px;
   overflow: hidden;
