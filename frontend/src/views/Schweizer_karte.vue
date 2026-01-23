@@ -6,18 +6,25 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import postalData from '@/assets/geo/zipcodes.ch.json' // JSON with code and coordinates 
-//import postalData from '@/assets/geo/zipcodes.at.json'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+import 'leaflet.markercluster/dist/leaflet.markercluster.js'
+import 'leaflet.markercluster/dist/MarkerCluster.css'
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 
-onMounted(async () => {
-  const L = await import('leaflet')
-  await import('leaflet/dist/leaflet.css')
+import postalDataCH from '@/assets/geo/zipcodes.ch.json'
+import postalDataAT from '@/assets/geo/zipcodes.at.json'
+import postalDataDE from '@/assets/geo/zipcodes.de.json'
 
-  const markerCluster = await import('leaflet.markercluster')
-  await import('leaflet.markercluster/dist/MarkerCluster.css')
-  await import('leaflet.markercluster/dist/MarkerCluster.Default.css')
+// Пути к картинкам пинов для стран
+const icons = {
+  CH: '/icons/ch-pin.png',
+  AT: '/icons/at-pin.png',
+  DE: '/icons/de-pin.png',
+  DEFAULT: 'public/icons/default-pin.png'
+}
 
-  // init map
+onMounted(() => {
   const map = L.map('map', { attributionControl: false }).setView([46.8, 8.3], 7)
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -25,35 +32,59 @@ onMounted(async () => {
     maxZoom: 18
   }).addTo(map)
 
-  // custom attribution
   L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map)
-  map.attributionControl.addAttribution('© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>')
+  map.attributionControl.addAttribution(
+    '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+  )
 
-  // marker clustering
+  const allPostalData = [...postalDataCH, ...postalDataAT, ...postalDataDE]
   const markers = L.markerClusterGroup()
 
-  postalData.forEach(item => {
+  allPostalData.forEach(item => {
     const lat = parseFloat(item.latitude)
     const lng = parseFloat(item.longitude)
-    if (!lat || !lng) return
+    if (isNaN(lat) || isNaN(lng)) return
 
-    const marker = L.marker([lat, lng], {
-      title: `${item.zipcode} — ${item.place}`
-    }).bindPopup(`${item.zipcode} — ${item.place}`)
+    const country = item.country_code?.trim().toUpperCase() || 'DEFAULT'
+    const iconUrl = icons[country] || icons.DEFAULT
 
+    // divIcon с картинкой, почтовым кодом и городом
+    const icon = L.divIcon({
+      className: 'postal-divicon',
+      html: `
+        <div class="pin-wrapper">
+          <img src="${iconUrl}" alt="${item.country_code}" class="pin-img"/>
+          <div class="pin-text">
+          <span class="zipcode">${item.zipcode}</span>
+          <span class="place">${item.place}</span>
+         </div>
+        </div> 
+      `,
+      iconSize: [20, 20],
+      iconAnchor: [30, 60],
+      popupAnchor: [0, -60]
+    })
+
+    const marker = L.marker([lat, lng], { icon })
+
+     // Добавляем popup при клике
+  marker.bindPopup(`
+    <strong>${item.zipcode}</strong><br/>
+    ${item.place}<br/>
+    <em>${country}</em>
+  `)
+  
     markers.addLayer(marker)
   })
 
   map.addLayer(markers)
 
-  // autocenter by all markers
-  const coords = postalData
+  // Автоцентрирование по всем маркерам
+  const coords = allPostalData
     .map(item => [parseFloat(item.latitude), parseFloat(item.longitude)])
     .filter(c => !isNaN(c[0]) && !isNaN(c[1]))
 
-  if (coords.length > 0) {
-    map.fitBounds(L.latLngBounds(coords))
-  }
+  if (coords.length > 0) map.fitBounds(L.latLngBounds(coords))
 })
 </script>
 
@@ -68,6 +99,7 @@ onMounted(async () => {
   box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* Зум контрол */
 .leaflet-control-zoom {
   border-radius: 10px;
   overflow: hidden;
@@ -87,4 +119,39 @@ onMounted(async () => {
 .leaflet-control-zoom a:hover {
   background: #f0f2f5;
 }
+
+.postal-divicon .pin-wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.postal-divicon .pin-img {
+   width: 20px;       /* ширина пина */
+  height: 20px;      /* высота пина */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.postal-divicon .pin-text {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0,0,0,0.8);
+}
+
+.postal-divicon .zipcode {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.postal-divicon .place {
+  font-size: 10px;
+}
+
 </style>
