@@ -15,16 +15,21 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import postalDataCH from '@/assets/geo/zipcodes.ch.json'
 import postalDataAT from '@/assets/geo/zipcodes.at.json'
 import postalDataDE from '@/assets/geo/zipcodes.de.json'
+import postalDataFR from '@/assets/geo/zipcodes.fr.json'
+import postalDataSK from '@/assets/geo/zipcodes.sk.json'
 
-// Пути к картинкам пинов для стран
+// path
 const icons = {
   CH: '/icons/ch-pin.png',
   AT: '/icons/at-pin.png',
   DE: '/icons/de-pin.png',
+  FR: '/icons/fr-pin.png',
+  SK: '/icons/sk-pin.png',
   DEFAULT: 'public/icons/default-pin.png'
 }
 
 onMounted(() => {
+    
   const map = L.map('map', { attributionControl: false }).setView([46.8, 8.3], 7)
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -37,7 +42,7 @@ onMounted(() => {
     '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
   )
 
-  const allPostalData = [...postalDataCH, ...postalDataAT, ...postalDataDE]
+  const allPostalData = [...postalDataCH, ...postalDataAT, ...postalDataDE, ...postalDataFR, ...postalDataSK,]
   const markers = L.markerClusterGroup()
 
   allPostalData.forEach(item => {
@@ -48,7 +53,7 @@ onMounted(() => {
     const country = item.country_code?.trim().toUpperCase() || 'DEFAULT'
     const iconUrl = icons[country] || icons.DEFAULT
 
-    // divIcon с картинкой, почтовым кодом и городом
+    // divIcon with img, postal, city
     const icon = L.divIcon({
       className: 'postal-divicon',
       html: `
@@ -67,24 +72,26 @@ onMounted(() => {
 
     const marker = L.marker([lat, lng], { icon })
 
-     // Добавляем popup при клике
+     // add popup by click
   marker.bindPopup(`
     <strong>${item.zipcode}</strong><br/>
     ${item.place}<br/>
     <em>${country}</em>
   `)
-  
     markers.addLayer(marker)
   })
 
   map.addLayer(markers)
 
-  // Автоцентрирование по всем маркерам
-  const coords = allPostalData
-    .map(item => [parseFloat(item.latitude), parseFloat(item.longitude)])
-    .filter(c => !isNaN(c[0]) && !isNaN(c[1]))
+  // auto centered by swiss
+  const swissMarkers = allPostalData
+  .filter(item => item.country_code?.toUpperCase() === 'CH')
+  .map(item => [parseFloat(item.latitude), parseFloat(item.longitude)])
+  .filter(c => !isNaN(c[0]) && !isNaN(c[1]))
 
-  if (coords.length > 0) map.fitBounds(L.latLngBounds(coords))
+if (swissMarkers.length > 0) {
+  map.fitBounds(L.latLngBounds(swissMarkers), { padding: [50, 50] })
+}
 })
 </script>
 
