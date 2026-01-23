@@ -3,7 +3,8 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import UsersView from '../views/UsersView.vue';
 import Dashboard from '@/views/Dashboard.vue';
 import StartPage from '@/views/StartPage.vue';
-import Schweizer_karte from '@/views/Schweizer_karte.vue'
+import Schweizer_karte from '@/views/Schweizer_karte.vue';
+import CustomersView from '@/views/CustomersView.vue';
 
 interface MyRouteMeta {
   title?: string
@@ -33,12 +34,18 @@ const routes: Array<RouteRecordRaw & { meta: MyRouteMeta }> = [
   },
 
   {
-    path: '/schweizer_karte',
-    name: 'schweizer karte',
+    path: '/Schweizer_karte',
+    name: 'Schweizer karte',
     component: Schweizer_karte,
-    meta: { title: 'schweizer_karte', titleKey: 'schweizer_karte'}
+    meta: { title: 'schweizer_karte', titleKey: 'Schweizer_karte'}
   },
 
+  {
+    path: '/customers',
+    name: 'Customers',
+    component: CustomersView,
+    meta: { title: 'Customers', titleKey: 'Customers'}
+  },
 
 ];
 

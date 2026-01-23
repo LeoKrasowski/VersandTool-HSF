@@ -65,7 +65,9 @@
                     <router-link to="/users" class="nav-item" active-class="active-link">
                         <button class="tile-btn">Mitarbeiter erfassen</button>
                     </router-link>
+                    <router-link to="/customers" class="nav-item" active-class="active-link">
                     <button class="tile-btn">Kundenangaben</button>
+                    </router-link>
             </div>
 
             <div class="dashboard-block">
