@@ -449,3 +449,33 @@ footer {
   z-index: 0;
 }
 
+/*map*/
+.map-wrapper {
+  flex: 1;
+  min-height: 0;
+  
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto;
+
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f4f6f8;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.map-wrapper:hover {
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}

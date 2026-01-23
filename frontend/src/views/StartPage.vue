@@ -58,9 +58,13 @@
                     <div class="ttl-strp-line"></div>
                         <img src="@/assets/board.png" class="title-icon-in" alt="Background">
                             <h5>Background</h5>
-                </div>    
-                    <button class="tile-btn">Schweizer Karte</button>
-                    <button class="tile-btn">Mitarbeiter erfassen</button>
+                </div>
+                    <router-link to="/Schweizer_karte" class="nav-item" active-class="active-link">  
+                        <button class="tile-btn">Schweizer Karte</button>
+                    </router-link>  
+                    <router-link to="/users" class="nav-item" active-class="active-link">
+                        <button class="tile-btn">Mitarbeiter erfassen</button>
+                    </router-link>
                     <button class="tile-btn">Kundenangaben</button>
             </div>
 
