@@ -112,6 +112,7 @@ if (swissMarkers.length > 0) {
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
+
 .leaflet-control-zoom a {
   background: #fff;
   color: #333;
@@ -123,6 +124,7 @@ if (swissMarkers.length > 0) {
   display: block;
   transition: background 0.2s ease;
 }
+
 .leaflet-control-zoom a:hover {
   background: #f0f2f5;
 }
