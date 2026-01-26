@@ -24,6 +24,7 @@ const messages = {
     notification_number: 'Benachrichtigungsnummer',
     invoice_name: 'Rechnungsname',
     week_days: 'Wochentage',
+    editCustomer: 'Kunden bearbeiten'
 
   },
   sk: {
@@ -46,9 +47,10 @@ const messages = {
     add_customer: 'Pridať zákazníka',
     customer_number: 'Zákaznícke číslo',
     language: 'Jazyk',
-    benachrichtigungsnummer: 'Číslo oznámenia',
-    rechnungsname: 'Názov faktúry',
-    wochentage: 'Týždenné dni',
+    notification_number: 'Číslo oznámenia',
+    invoice_name: 'Názov faktúry',
+    week_days: 'Týždenné dni',
+    editCustomer: 'Upraviť zákazníka'
   }
 }
 

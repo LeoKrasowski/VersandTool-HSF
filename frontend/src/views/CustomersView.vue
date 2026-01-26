@@ -10,7 +10,7 @@
     <div class="page-content">
       <!-- Add Customer toggle button -->
       <button class="btn-ord mb-3" @click="handleAddButton">
-        {{ showAddForm ? $t('cancel') : $t('kunde_hinzufügen') }}
+        {{ showAddForm ? $t('cancel') : $t('add_customer') }}
       </button>
 
       <!-- Add Customer Form -->
@@ -46,7 +46,7 @@
 
       <!-- Edit Customer Form -->
       <div v-if="editCustomer" class="card p-3 mb-3">
-        <h5>{{ $t('editUser') }}</h5>
+        <h5>{{ $t('editCustomer') }}</h5>
         <form @submit.prevent="updateCustomerHandler">
           <div class="mb-2">
             <input v-model="editCustomer.number" :placeholder="$t('customer number')" class="form-control" />
@@ -79,12 +79,12 @@
       <table class="table table-striped table-bordered">
         <thead class="table-style">
           <tr>
-            <th>{{ $t('customer number') }}</th>
+            <th>{{ $t('customer_number') }}</th>
             <th>{{ $t('name') }}</th>
             <th>{{ $t('language') }}</th>
-            <th>{{ $t('notification number') }}</th>
-            <th>{{ $t('invoice name') }}</th>
-            <th>{{ $t('week days') }}</th>
+            <th>{{ $t('notification_number') }}</th>
+            <th>{{ $t('invoice_name') }}</th>
+            <th>{{ $t('week_days') }}</th>
             <th>{{ $t('actions') }}</th>
           </tr>
         </thead>
