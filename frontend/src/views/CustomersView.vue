@@ -10,16 +10,16 @@
     <div class="page-content">
       <!-- Add Customer toggle button -->
       <button class="btn-ord mb-3" @click="handleAddButton">
-        {{ showAddForm ? $t('cancel') : $t('addCustomer') }}
+        {{ showAddForm ? $t('cancel') : $t('kunde_hinzufügen') }}
       </button>
 
       <!-- Add Customer Form -->
       <transition name="slide-fade">
         <div v-if="showAddForm" class="add-form card p-3 mb-3">
-          <h5>{{ $t('addCustomer') }}</h5>
+          <h5>{{ $t('add_customer') }}</h5>
           <form @submit.prevent="addCustomer">
             <div class="mb-2">
-              <input v-model="form.number" :placeholder="$t('customer number')" class="form-control" />
+              <input v-model="form.number" :placeholder="$t('customer_number')" class="form-control" />
             </div>
             <div class="mb-2">
               <input v-model="form.name" :placeholder="$t('name')" class="form-control" />
@@ -28,13 +28,13 @@
               <input v-model="form.language" :placeholder="$t('language')" class="form-control" />
             </div>
             <div class="mb-2">
-              <input v-model="form.notificationNumber" :placeholder="$t('notification number')" class="form-control" />
+              <input v-model="form.notificationNumber" :placeholder="$t('notification_number')" class="form-control" />
             </div>
             <div class="mb-2">
-              <input v-model="form.invoiceName" :placeholder="$t('invoice name')" class="form-control" />
+              <input v-model="form.invoiceName" :placeholder="$t('invoice_name')" class="form-control" />
             </div>
             <div class="mb-2">
-              <input v-model="form.weekDays" :placeholder="$t('week days')" class="form-control" />
+              <input v-model="form.weekDays" :placeholder="$t('week_days')" class="form-control" />
             </div>
 
             <button type="submit" class="btn-submit" :disabled="isSaving">

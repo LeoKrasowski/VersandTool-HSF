@@ -18,6 +18,13 @@ const messages = {
     active: 'Active',
     dashboard: 'Dashboard',
     daten_importieren: 'Daten importieren',
+    add_customer: 'Kunde hinzufügen',
+    customer_number: 'Kundennummer',
+    language: 'Sprache',
+    notification_number: 'Benachrichtigungsnummer',
+    invoice_name: 'Rechnungsname',
+    week_days: 'Wochentage',
+
   },
   sk: {
     users: 'Používateľ',
@@ -35,7 +42,13 @@ const messages = {
     telefon: 'Telefón',
     active: 'Aktívne',
     dashboard: 'Prehľad',
-    daten_importieren: 'Importovať údaje'
+    daten_importieren: 'Importovať údaje',
+    add_customer: 'Pridať zákazníka',
+    customer_number: 'Zákaznícke číslo',
+    language: 'Jazyk',
+    benachrichtigungsnummer: 'Číslo oznámenia',
+    rechnungsname: 'Názov faktúry',
+    wochentage: 'Týždenné dni',
   }
 }
 
