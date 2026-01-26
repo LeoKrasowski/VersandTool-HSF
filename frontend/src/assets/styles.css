@@ -208,7 +208,8 @@ body {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  margin-left: 3rem;               /* need for inline*/ 
+  margin-left: 3rem;               /* need for inline*/
+  margin-right: 0.5rem;
 }
 
 .page-text-img-title .page-title {
@@ -478,4 +479,58 @@ footer {
 #map {
   height: 100%;
   width: 100%;
+}
+
+/*non active users in the users table*/
+.table-secondary {
+  background-color: #f8f9fa; 
+  color: #6c757d; 
+}
+.text-muted {
+  opacity: 0.4; 
+}
+
+.btnedit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.3rem;
+
+  padding: 8px 14px;
+  font-size: 14px;
+  line-height: 1.2;
+
+  border-radius: 6px;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  background-color:#fde5b8;
+  border-color:#3a4e6e;
+}
+
+.btndel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.3rem;
+
+  padding: 8px 14px;
+  font-size: 14px;
+  line-height: 1.2;
+
+  border-radius: 6px;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  background-color:#fdadad;
+  border-color:#3a4e6e;
+}
+.btntab-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
 }

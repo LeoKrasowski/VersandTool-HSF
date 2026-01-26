@@ -24,7 +24,9 @@ const messages = {
     notification_number: 'Benachrichtigungsnummer',
     invoice_name: 'Rechnungsname',
     week_days: 'Wochentage',
-    editCustomer: 'Kunden bearbeiten'
+    editCustomer: 'Kunden bearbeiten',
+    active_user: 'Aktiv',
+    inactive: 'Inaktiv',
 
   },
   sk: {
@@ -41,7 +43,7 @@ const messages = {
     firma: 'Podnik',
     adresse: 'Adresa',
     telefon: 'Telefón',
-    active: 'Aktívne',
+    active_user: 'Aktívne',
     dashboard: 'Prehľad',
     daten_importieren: 'Importovať údaje',
     add_customer: 'Pridať zákazníka',
@@ -50,7 +52,8 @@ const messages = {
     notification_number: 'Číslo oznámenia',
     invoice_name: 'Názov faktúry',
     week_days: 'Týždenné dni',
-    editCustomer: 'Upraviť zákazníka'
+    editCustomer: 'Upraviť zákazníka',
+    inactive: 'Neaktívne',
   }
 }
 

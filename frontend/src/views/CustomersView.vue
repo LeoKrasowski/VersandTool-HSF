@@ -97,10 +97,10 @@
             <td>{{ customer.invoiceName }}</td>
             <td>{{ customer.weekDays }}</td>
             <td>
-              <button class="btn btn-sm btn-warning me-1" @click="startEdit(customer)">
+              <button class="btnedit btntab-sm" @click="startEdit(customer)">
                 {{ $t('edit') }}
               </button>
-              <button class="btn btn-sm btn-danger" @click="deleteCustomerHandler(customer.id, customer)">
+              <button class="btndel btntab-sm" @click="deleteCustomerHandler(customer.id, customer)">
                 {{ $t('delite') }}
               </button>
             </td>

@@ -21,9 +21,10 @@ export const createUser = (user: User) => {
 };
 
 export const updateUser = (id: number, user: User) => {
-  return api.put(`/users/${id}`, user)
+  const payload = { ...user, active: user.active ? false : true };
+  return api.put(`/users/${id}`, payload);
 }
 
-export const deactivateUser = (id: number, user: User) => {
-  return api.put(`/users/${id}/deactivate`, user)
-}
+export const deactivateUser = (id: number) => {
+  return api.put(`/users/${id}/deactivate`);
+};
