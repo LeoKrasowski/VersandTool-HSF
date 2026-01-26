@@ -27,6 +27,17 @@ const messages = {
     editCustomer: 'Kunden bearbeiten',
     active_user: 'Aktiv',
     inactive: 'Inaktiv',
+    administration: 'Verwaltung',
+    import: 'Import',
+    expedit_HSF: 'Expedit HSF',
+    quick_search: 'Schnellsuche',
+    disposition: 'Disposition',
+    invoice: 'Abrechnung',
+    production: 'Produktion',
+    technology_reports: 'Technikermeldung',
+    racks: 'Gestelle',
+    user_groups_message: 'Benutzengruppen meldung',
+    order_processing: 'Auftrag bearbeitung',
 
   },
   sk: {
@@ -54,6 +65,18 @@ const messages = {
     week_days: 'Týždenné dni',
     editCustomer: 'Upraviť zákazníka',
     inactive: 'Neaktívne',
+    administration: 'Administratívy',
+    import: 'Importovať',
+    expedit_HSF: 'Expedované HSF',
+    quick_search: 'Rýchle vyhľadávanie',
+    disposition: 'Dispozícia',
+    invoice: 'Faktúra',
+    production: 'Výroba',
+    technology_reports: 'Správa technika',
+    racks: 'Regály',
+    user_groups_message: 'Správa skupiny užívateľov',
+    order_processing: 'Spracovanie objednávky',
+
   }
 }
 

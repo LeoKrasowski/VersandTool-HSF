@@ -81,10 +81,11 @@
           </label>
         </div>
 
-        <button type="submit" class="btn" :style="{ backgroundColor: 'var(--color-accent)', color: '#fff' }">
+        <button type="submit" class="btndel btntab-sm"
+          :style="{ backgroundColor: 'var(--color-accent-BlueCalm)', color: '#fff' }">
           {{ $t('update') }}
         </button>
-        <button type="button" class="btn btn-secondary ms-2" @click="editUser = null">
+        <button type="button" class="btnedit btntab-sm" @click="editUser = null">
           {{ $t('cancel') }}
         </button>
       </form>
@@ -117,7 +118,7 @@
           <td>{{ u.fax }}</td>
           <td>
             <button class="btnedit btntab-sm" @click="startEdit(u)">{{ $t('edit')
-              }}</button>
+            }}</button>
             <button class="btndel btntab-sm" @click="handleDeactivate(u)" :disabled="!u.active">
               {{ $t('delite') }}
             </button>

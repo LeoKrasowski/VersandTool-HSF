@@ -91,17 +91,12 @@ div > .header-title {
   align-items: center;
   text-decoration: none;
   color: rgb(252, 247, 247);
-  font-weight: 490;
+  font-weight: 500;
+  font-size: 0.7rem;
+  margin-right: -0.3rem;
+  margin-left: -0.3rem;
 }
-/* icon */
-.nav-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-right: 0.2rem;
-}
-.nav-icon:hover {
-  transform: scale(110%);
-}
+
 /* hover */
 .nav-item:hover {
   text-decoration: underline;
