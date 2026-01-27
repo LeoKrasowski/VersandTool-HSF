@@ -529,3 +529,22 @@ footer {
   font-size: 12px;
   border-radius: 4px;
 }
+/* Dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 5px 0;
+  z-index: 10;
+}
+.dropdown-menu li {
+  padding: 5px 15px;
+}
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}

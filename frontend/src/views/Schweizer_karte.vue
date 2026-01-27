@@ -17,6 +17,7 @@ import postalDataAT from '@/assets/geo/zipcodes.at.json'
 import postalDataDE from '@/assets/geo/zipcodes.de.json'
 import postalDataFR from '@/assets/geo/zipcodes.fr.json'
 import postalDataSK from '@/assets/geo/zipcodes.sk.json'
+import postalDataCZ from '@/assets/geo/zipcodes.cz.json'
 
 // path
 const icons = {
@@ -25,11 +26,12 @@ const icons = {
   DE: '/icons/de-pin.png',
   FR: '/icons/fr-pin.png',
   SK: '/icons/sk-pin.png',
+  CZ: '/icons/cz-pin.png',
   DEFAULT: 'public/icons/default-pin.png'
 }
 
 onMounted(() => {
-    
+
   const map = L.map('map', { attributionControl: false }).setView([46.8, 8.3], 7)
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -42,7 +44,7 @@ onMounted(() => {
     '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
   )
 
-  const allPostalData = [...postalDataCH, ...postalDataAT, ...postalDataDE, ...postalDataFR, ...postalDataSK,]
+  const allPostalData = [...postalDataCH, ...postalDataAT, ...postalDataDE, ...postalDataFR, ...postalDataSK, ...postalDataCZ,]
   const markers = L.markerClusterGroup()
 
   allPostalData.forEach(item => {
@@ -72,8 +74,8 @@ onMounted(() => {
 
     const marker = L.marker([lat, lng], { icon })
 
-     // add popup by click
-  marker.bindPopup(`
+    // add popup by click
+    marker.bindPopup(`
     <strong>${item.zipcode}</strong><br/>
     ${item.place}<br/>
     <em>${country}</em>
@@ -85,13 +87,13 @@ onMounted(() => {
 
   // auto centered by swiss
   const swissMarkers = allPostalData
-  .filter(item => item.country_code?.toUpperCase() === 'CH')
-  .map(item => [parseFloat(item.latitude), parseFloat(item.longitude)])
-  .filter(c => !isNaN(c[0]) && !isNaN(c[1]))
+    .filter(item => item.country_code?.toUpperCase() === 'CH')
+    .map(item => [parseFloat(item.latitude), parseFloat(item.longitude)])
+    .filter(c => !isNaN(c[0]) && !isNaN(c[1]))
 
-if (swissMarkers.length > 0) {
-  map.fitBounds(L.latLngBounds(swissMarkers), { padding: [50, 50] })
-}
+  if (swissMarkers.length > 0) {
+    map.fitBounds(L.latLngBounds(swissMarkers), { padding: [50, 50] })
+  }
 })
 </script>
 
@@ -103,14 +105,14 @@ if (swissMarkers.length > 0) {
   margin: 2rem auto;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Зум контрол */
 .leaflet-control-zoom {
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .leaflet-control-zoom a {
@@ -138,8 +140,10 @@ if (swissMarkers.length > 0) {
 }
 
 .postal-divicon .pin-img {
-   width: 20px;       /* ширина пина */
-  height: 20px;      /* высота пина */
+  width: 20px;
+  /* ширина пина */
+  height: 20px;
+  /* высота пина */
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -151,7 +155,7 @@ if (swissMarkers.length > 0) {
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
-  text-shadow: 0 0 3px rgba(0,0,0,0.8);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
 
 .postal-divicon .zipcode {
@@ -162,5 +166,4 @@ if (swissMarkers.length > 0) {
 .postal-divicon .place {
   font-size: 10px;
 }
-
 </style>

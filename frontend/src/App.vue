@@ -13,9 +13,12 @@
 
       <!-- CENTER -->
       <nav class="header-nav">
-        <router-link to="/users" class="nav-item" active-class="active-link">
-          <span>{{ $t('administration') }}</span>
-        </router-link>
+        <div class="dropdown">
+          <button @click="isOpenAdmin = !isOpenAdmin">{{ $t('administration') }}</button>
+          <ul v-if="isOpenAdmin">
+            <li><router-link to="/users">User administration</router-link></li>
+          </ul>
+        </div>
         <router-link to="/import" class="nav-item" active-class="active-link">
           <span>{{ $t('import') }}</span>
         </router-link>
@@ -29,26 +32,14 @@
           <span>{{ $t('disposition') }}</span>
         </router-link>
 
-        <ul class="nav-list">
-          <li class="nav-item" @mouseenter="showMenu('background')" @mouseleave="hideMenu">
-            <span>{{ $t('Background') }}</span>
-            <ul v-if="activeMenu === 'background'" class="dropdown-menu">
-              <li><router-link to="/background/option1">{{ $t('Option 1') }}</router-link></li>
-              <li><router-link to="/background/option2">{{ $t('Option 2') }}</router-link></li>
-              <li><router-link to="/background/option3">{{ $t('Option 3') }}</router-link></li>
-            </ul>
-          </li>
-
-          <li class="nav-item" @mouseenter="showMenu('kunden')" @mouseleave="hideMenu">
-            <span>{{ $t('Kundenangaben') }}</span>
-            <ul v-if="activeMenu === 'kunden'" class="dropdown-menu">
-              <li><router-link to="/kunden/add">{{ $t('Add Kunde') }}</router-link></li>
-              <li><router-link to="/kunden/list">{{ $t('List Kunde') }}</router-link></li>
-            </ul>
-          </li>
-        </ul>
-
-
+        <div class="dropdown">
+          <button @click="isOpenBackground = !isOpenBackground">{{ $t('Background') }}</button>
+          <ul v-if="isOpenBackground">
+            <li><router-link to="/Schweizer_karte">{{ $t('Schweizer_Karte') }}</router-link></li>
+            <li><router-link to="/users">{{ $t('Mitarbeiter_erefassen') }}</router-link></li>
+            <li><router-link to="/customers">{{ $t('Kundenangaben') }}</router-link></li>
+          </ul>
+        </div>
 
         <router-link to="/invoice" class="nav-item" active-class="active-link">
           <span>{{ $t('invoice') }}</span>
@@ -102,15 +93,11 @@ const { locale } = useI18n()
 // current lang
 const currentLang = ref(locale.value)
 
-const activeMenu = ref<string | null>(null)
+const isOpenAdmin = ref(false)
+const isOpenBackground = ref(false)
 
-const showMenu = (menuName: string) => {
-  activeMenu.value = menuName
-}
 
-const hideMenu = () => {
-  activeMenu.value = null
-}
+
 
 // then changing select changing lang too
 const changeLang = () => {
@@ -118,3 +105,77 @@ const changeLang = () => {
 }
 
 </script>
+
+<style stoped>
+/* container dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+  /* gap bitween menu elements  */
+}
+
+/* button dropdown */
+.dropdown>button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  /* if header dark */
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+/* Hover button */
+.dropdown>button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* menu */
+.dropdown ul {
+  position: absolute;
+  top: 100%;
+  /* under button */
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* points menu */
+.dropdown ul li {
+  padding: 8px 15px;
+}
+
+/* Hover for points */
+.dropdown ul li:hover {
+  background-color: #f0f0f0;
+}
+
+/* links in menu */
+.dropdown ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* Hover for menu */
+.dropdown ul li a:hover {
+  color: #000;
+}
+
+/* adapt for header with flex */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* gap bitween menu points */
+}
+</style>
